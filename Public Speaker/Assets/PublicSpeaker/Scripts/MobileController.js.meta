@@ -1,0 +1,44 @@
+- !<AssetImportMetadata/0e9acbee-2022-4e0f-bdf4-97d5fa76456c>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 686c21b8-8613-4863-86aa-fd997edc1a3b
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 686c21b8-8613-4863-86aa-fd997edc1a3b
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> b6ca0564-b2ae-4117-a923-e383c564d5b4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/b6ca0564-b2ae-4117-a923-e383c564d5b4>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1c015526-564a-43eb-87eb-ebbcfcfe6cc2
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    googleSlideBridgeObj: false
+    presentationSwitcherObj: false
+    useGoogleSlide: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - presentationSwitcher: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      customFileBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useCustomFileBridge: false
+      presentationSwitcherObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      googleSlideBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useGoogleSlide: false
+  ScriptTypes:
+    -
+      {}

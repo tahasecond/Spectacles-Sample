@@ -1,0 +1,42 @@
+- !<AssetImportMetadata/8b8e0f3c-b88d-4096-a790-194c515562d0>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 0d3220e1-3be0-4860-91ca-1003956b88ce
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 0d3220e1-3be0-4860-91ca-1003956b88ce
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 80afa3e5-1117-4e18-beef-1b4f5351fec2
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/80afa3e5-1117-4e18-beef-1b4f5351fec2>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ce26f9e1-1e20-40c2-ae3f-856a07d4c2be
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    interactableScript: false
+    presentationSwitcher: false
+    useNextButton: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - interactableScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      presentationSwitcher: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      useNextButton: true
+      delayBetweenSlides: 0.500000
+  ScriptTypes:
+    -
+      {}

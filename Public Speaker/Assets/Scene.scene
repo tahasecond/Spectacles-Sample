@@ -6,6 +6,8 @@
     - !<own> 6d6863f0-b762-453d-b424-94045242ce21
     - !<own> 91b21922-e3e8-49e6-87e5-2557c3a1d031
     - !<own> f1537008-918e-4f57-a4b7-0572bfb30152
+    - !<own> cb577e96-b44f-46b0-8dd1-5213a47d770d
+    - !<own> 3c0fd884-5b64-4c4a-a380-c7607cd06b4e
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -1157,7 +1159,8 @@
   ScriptInputsDefault:
     pressThreshold: true
     resetDuration: true
-    useGoogleSlide: true
+    customFileBridgeObj: true
+    useCustomFileBridge: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1176,9 +1179,9 @@
       pressThreshold: 0.700000
       resetDuration: !<float> 1.000000
       presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
+      customFileBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useCustomFileBridge: false
       next: true
-      useGoogleSlide: false
   ScriptTypes:
     "":
       {}
@@ -2212,6 +2215,26 @@
     []
   Components:
     - !<own> 4f86e1b1-938e-49dd-aa2f-1e19390e6751
+- !<ScriptComponent/3a1b8557-f8b8-4b16-b961-06529a4a8b2f>
+  PrefabRemaps:
+    []
+  Name: CustomFileBridge
+  Enabled: true
+  ScriptAsset: !<reference> a6c8426d-8059-49e5-beb3-530a043a8c31
+  ScriptInputsDefault:
+    textPanel: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      remoteServiceModule: !<reference.RemoteServiceModule> 3c886d61-dc14-4373-8442-c11983aea060
+      remoteMediaModule: !<reference.RemoteMediaModule> b36b8c03-8538-4a1f-895b-17e369a70ab4
+      notesImage: !<reference.Image> f7b53d46-139d-416b-8683-353a51981316
+      textDisplay: !<reference.Text> 5c44743c-9509-4eb2-954a-81b3f734424a
+      textPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/3a51d5b8-0310-4b97-aafc-df6e6fbc03d2>
   PrefabRemaps:
     []
@@ -2357,6 +2380,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/3c0fd884-5b64-4c4a-a380-c7607cd06b4e>
+  PrefabRemaps:
+    []
+  Name: PresentationSwitcher
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b1e65aa9-9257-4dbf-86b6-8abde04fc69c
 - !<SceneObject/3c559282-f782-4518-81f5-040f13aafc5d>
   PrefabRemaps:
     []
@@ -2595,41 +2633,6 @@
     []
   Components:
     - !<own> d6eca7dc-7100-424a-ba44-26f10ff63708
-- !<ScriptComponent/45c80d3b-1ccb-403c-bb72-9e1a05f563b2>
-  PrefabRemaps:
-    []
-  Name: SoftPressController
-  Enabled: true
-  ScriptAsset: !<reference> 00ea2f04-46e7-4292-ab86-745668651733
-  ScriptInputsDefault:
-    pressThreshold: true
-    resetDuration: true
-    next: true
-    useGoogleSlide: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      colliderObject: !<reference.SceneObject> 4e1dc6ad-4554-4ee8-9f3a-7e524c38e3d6
-      interactorObject: !<reference.SceneObject> e1426079-775d-4134-85cc-9f9cc8b47ad3
-      closestPointMarker: !<reference.SceneObject> ad43c001-4a77-441d-86d3-38ab797c0381
-      topVertex0: !<reference.SceneObject> 0d546d77-b19c-4e62-9b38-5ea9e9f5e367
-      topVertex1: !<reference.SceneObject> 8e3a749a-a07e-4221-9f7e-11f6c13dea59
-      topVertex2: !<reference.SceneObject> c0136a0c-ba75-461e-b587-155792333e0c
-      topVertex3: !<reference.SceneObject> f24019fe-b976-4c0a-a9b3-c916c00d0058
-      bottomVertex0: !<reference.SceneObject> eceab94d-ec16-4428-992d-631d0301a82c
-      bottomVertex1: !<reference.SceneObject> 5d3375ec-eaa2-4a3b-94dd-a2e1ce2cfce9
-      bottomVertex2: !<reference.SceneObject> 7bbbd388-2abd-49ba-8c6d-0e6cc18dace0
-      bottomVertex3: !<reference.SceneObject> f62c034e-e995-407f-831b-79d0942b5694
-      pressThreshold: 0.700000
-      resetDuration: !<float> 1.000000
-      presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
-      next: false
-      useGoogleSlide: false
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/463307e3-dda1-4732-bc3f-0e81dcfc5307>
   PrefabRemaps:
     []
@@ -2845,10 +2848,9 @@
     []
   Components:
     - !<own> 073466e1-c11f-466d-9a20-f0f6670de1f2
-    - !<own> 78e071e3-fb1a-477c-b3c9-0105d92c5e91
     - !<own> c9d406d6-ff1e-435e-a67a-55ffe1a6dd84
-    - !<own> e7609cad-9623-411a-98bb-d7c5f2c388ab
     - !<own> db191827-1075-468e-a1fb-20453df54367
+    - !<own> f3c5c52e-f5ea-497a-bc90-1388937dbfda
 - !<SceneObject/4c7c5670-7612-4678-8d66-8a376ec8e70b>
   PrefabRemaps:
     []
@@ -2998,7 +3000,7 @@
   Components:
     - !<own> 3613818a-5fe5-48ef-808c-0e0f0db9bfaf
     - !<own> 2e6549ad-e885-438b-b76e-71c2d37b6931
-    - !<own> 45c80d3b-1ccb-403c-bb72-9e1a05f563b2
+    - !<own> b1274189-37ba-4169-9454-54010bd87f7e
 - !<RenderMeshVisual/4e9edf6e-da10-4332-82fc-10764df734c5>
   PrefabRemaps:
     []
@@ -4371,24 +4373,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/78e071e3-fb1a-477c-b3c9-0105d92c5e91>
-  PrefabRemaps:
-    []
-  Name: MobileController
-  Enabled: true
-  ScriptAsset: !<reference> d91586f0-3549-46a9-8309-3ea12592f5eb
-  ScriptInputsDefault:
-    useGoogleSlide: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
-      useGoogleSlide: false
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/790dd567-5b2a-41a2-8ff9-dd91206c41f0>
   PrefabRemaps:
     - 075334b5-478b-4579-87fe-5f49f9400226: b8f82209-a304-4629-a54f-4d22a472d1fb
@@ -5246,6 +5230,42 @@
     []
   Components:
     - !<own> 99fa7376-b19c-43e7-805f-875b2fa59ca4
+- !<ScriptComponent/913930fa-cd29-48e3-a3f0-b00ed46bac44>
+  PrefabRemaps:
+    []
+  Name: SoftPressController
+  Enabled: true
+  ScriptAsset: !<reference> edf872b2-436f-4719-8c25-f295ce274d31
+  ScriptInputsDefault:
+    define: true
+    pressThreshold: true
+    resetDuration: true
+    useGoogleSlide: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      define: !<RequiredType.lines> 00000000-0000-0000-0000-000000000000
+      colliderObject: !<reference.SceneObject> dcc9df5b-dd4f-4db0-8308-9d6905fe34d4
+      interactorObject: !<reference.SceneObject> 4d0695f3-6915-4cbb-b1b7-94bd255ec1f4
+      closestPointMarker: !<reference.SceneObject> 267c4206-e592-42df-b171-b676b4d3996e
+      topVertex0: !<reference.SceneObject> 63dd55e3-5a03-4e2f-b2cf-3c80f4d39de2
+      topVertex1: !<reference.SceneObject> 8e3a749a-a07e-4221-9f7e-11f6c13dea59
+      topVertex2: !<reference.SceneObject> c0136a0c-ba75-461e-b587-155792333e0c
+      topVertex3: !<reference.SceneObject> f24019fe-b976-4c0a-a9b3-c916c00d0058
+      bottomVertex0: !<reference.SceneObject> 5d7d5be3-bcb4-493f-904a-f51ffc367b8f
+      bottomVertex1: !<reference.SceneObject> 5899baca-76af-49bb-a82e-73ae65d2c846
+      bottomVertex2: !<reference.SceneObject> f3a29c67-4793-44a6-acbd-70b24ddce0e5
+      bottomVertex3: !<reference.SceneObject> 7313b765-82d8-44ff-a362-e6a98d2688e8
+      pressThreshold: 0.700000
+      resetDuration: !<float> 1.000000
+      presentationSwitcher: !<reference.SceneObject> 3c0fd884-5b64-4c4a-a380-c7607cd06b4e
+      googleSlideBridge: !<reference.SceneObject> cb577e96-b44f-46b0-8dd1-5213a47d770d
+      next: true
+      useGoogleSlide: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/91b21922-e3e8-49e6-87e5-2557c3a1d031>
   PrefabRemaps:
     []
@@ -6432,6 +6452,43 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/b1274189-37ba-4169-9454-54010bd87f7e>
+  PrefabRemaps:
+    []
+  Name: SoftPressController
+  Enabled: true
+  ScriptAsset: !<reference> edf872b2-436f-4719-8c25-f295ce274d31
+  ScriptInputsDefault:
+    define: true
+    pressThreshold: true
+    resetDuration: true
+    next: true
+    useGoogleSlide: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      define: !<RequiredType.lines> 00000000-0000-0000-0000-000000000000
+      colliderObject: !<reference.SceneObject> 4e1dc6ad-4554-4ee8-9f3a-7e524c38e3d6
+      interactorObject: !<reference.SceneObject> feb173f8-ac97-4729-82fa-13d945033f08
+      closestPointMarker: !<reference.SceneObject> ad43c001-4a77-441d-86d3-38ab797c0381
+      topVertex0: !<reference.SceneObject> 0d546d77-b19c-4e62-9b38-5ea9e9f5e367
+      topVertex1: !<reference.SceneObject> 8e3a749a-a07e-4221-9f7e-11f6c13dea59
+      topVertex2: !<reference.SceneObject> c0136a0c-ba75-461e-b587-155792333e0c
+      topVertex3: !<reference.SceneObject> f24019fe-b976-4c0a-a9b3-c916c00d0058
+      bottomVertex0: !<reference.SceneObject> eceab94d-ec16-4428-992d-631d0301a82c
+      bottomVertex1: !<reference.SceneObject> fea7bae4-fafd-4f8e-87eb-29e7447b0273
+      bottomVertex2: !<reference.SceneObject> 01de8b2c-5517-4bbb-9dcc-c0c0f6445d6d
+      bottomVertex3: !<reference.SceneObject> f62c034e-e995-407f-831b-79d0942b5694
+      pressThreshold: 0.700000
+      resetDuration: !<float> 1.000000
+      presentationSwitcher: !<reference.SceneObject> 3c0fd884-5b64-4c4a-a380-c7607cd06b4e
+      googleSlideBridge: !<reference.SceneObject> cb577e96-b44f-46b0-8dd1-5213a47d770d
+      next: false
+      useGoogleSlide: false
+  ScriptTypes:
+    "":
+      {}
 - !<Image/b15298ec-03ea-462d-a5ba-74f571df8afd>
   PrefabRemaps:
     []
@@ -6466,6 +6523,22 @@
     []
   Components:
     - !<own> 86e8496a-74a5-4dc4-8434-8729b23d1386
+- !<ScriptComponent/b1e65aa9-9257-4dbf-86b6-8abde04fc69c>
+  PrefabRemaps:
+    []
+  Name: PresentationSwitcher
+  Enabled: true
+  ScriptAsset: !<reference> 186545c9-ca97-4158-a9c1-021cedca0fbe
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      parentObject: !<reference.SceneObject> 4c7ae8a9-90c6-417b-9526-807bbbb789d8
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b217b3bd-23ec-42c3-988b-8a05fee2b528>
   PrefabRemaps:
     []
@@ -7011,40 +7084,6 @@
     []
   Components:
     - !<own> 41529008-ed70-47ff-8c12-17da1a294fdc
-- !<ScriptComponent/c2f85906-0cd8-4950-a254-42d4fa41489e>
-  PrefabRemaps:
-    []
-  Name: SoftPressController
-  Enabled: true
-  ScriptAsset: !<reference> 00ea2f04-46e7-4292-ab86-745668651733
-  ScriptInputsDefault:
-    pressThreshold: true
-    resetDuration: true
-    useGoogleSlide: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      colliderObject: !<reference.SceneObject> dcc9df5b-dd4f-4db0-8308-9d6905fe34d4
-      interactorObject: !<reference.SceneObject> df8ee7a3-e8bf-47ae-83ae-0fc4459baa38
-      closestPointMarker: !<reference.SceneObject> 267c4206-e592-42df-b171-b676b4d3996e
-      topVertex0: !<reference.SceneObject> 63dd55e3-5a03-4e2f-b2cf-3c80f4d39de2
-      topVertex1: !<reference.SceneObject> f720683e-d7ea-44d0-a455-29bc45a556b0
-      topVertex2: !<reference.SceneObject> 0a7f2788-4449-40d4-a490-b622a17ad7aa
-      topVertex3: !<reference.SceneObject> f657b507-a1d4-4340-b17a-b7e2d78a9807
-      bottomVertex0: !<reference.SceneObject> 5d7d5be3-bcb4-493f-904a-f51ffc367b8f
-      bottomVertex1: !<reference.SceneObject> 5899baca-76af-49bb-a82e-73ae65d2c846
-      bottomVertex2: !<reference.SceneObject> f3a29c67-4793-44a6-acbd-70b24ddce0e5
-      bottomVertex3: !<reference.SceneObject> 7313b765-82d8-44ff-a362-e6a98d2688e8
-      pressThreshold: 0.700000
-      resetDuration: !<float> 1.000000
-      presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
-      next: true
-      useGoogleSlide: false
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/c31a892f-9e7c-45d8-a55e-76afed5384af>
   PrefabRemaps:
     []
@@ -7390,22 +7429,37 @@
   Enabled: true
   ScriptAsset: !<reference> a14e77f3-e83a-475e-8bf5-2890eadd85b9
   ScriptInputsDefault:
-    useGoogleSlide: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
+      customFileBridgeObj: !<reference.SceneObject> cb577e96-b44f-46b0-8dd1-5213a47d770d
       text: !<reference.Text> 08e19bdc-ab43-4928-841e-f3d7538fb02f
       presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
       commandDelay: !<float> 3.000000
       buttonImage: !<reference.Image> 41529008-ed70-47ff-8c12-17da1a294fdc
       normalMicImage: !<reference.Texture> c17c2de5-8704-4e09-b3b3-7439b73ceba7
       listeningMicImage: !<reference.Texture> bb0396f5-919c-4235-b0a2-a914e698cb66
-      useGoogleSlide: false
+      useGoogleSlide: true
   ScriptTypes:
     "":
       {}
+- !<SceneObject/cb577e96-b44f-46b0-8dd1-5213a47d770d>
+  PrefabRemaps:
+    []
+  Name: CustomFileBridge
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3a1b8557-f8b8-4b16-b961-06529a4a8b2f
 - !<SceneObject/cb87d060-fa75-459c-9f0f-840f3f58d2f3>
   PrefabRemaps:
     []
@@ -7922,7 +7976,7 @@
   PrefabRemaps:
     []
   Name: "[GooglePresentation]"
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8035,7 +8089,7 @@
   Components:
     - !<own> a0abcc8c-c917-490f-9705-48f1f3fb8f66
     - !<own> acd885ef-6271-4c77-bd2a-07ca3bea63c9
-    - !<own> c2f85906-0cd8-4950-a254-42d4fa41489e
+    - !<own> 913930fa-cd29-48e3-a3f0-b00ed46bac44
 - !<ScriptComponent/ddccaa3f-9b96-43aa-b280-ed5da55f2719>
   PrefabRemaps:
     []
@@ -8218,33 +8272,6 @@
     []
   Components:
     - !<own> 982cbc92-48a6-4c41-82e6-352e73357029
-- !<ScriptComponent/e7609cad-9623-411a-98bb-d7c5f2c388ab>
-  PrefabRemaps:
-    []
-  Name: GoogleSlideBridge
-  Enabled: false
-  ScriptAsset: !<reference> 66c56ea9-c5be-41f7-a224-9e7e364e1f32
-  ScriptInputsDefault:
-    presentationId: true
-    accessToken: true
-    syncNavigationToGoogle: true
-    pollForChanges: true
-    pollingInterval: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      presentationId: ""
-      accessToken: ""
-      slideImage: !<reference.Image> f7b53d46-139d-416b-8683-353a51981316
-      speakerNotes: !<reference.Text> 5c44743c-9509-4eb2-954a-81b3f734424a
-      syncNavigationToGoogle: true
-      pollForChanges: true
-      pollingInterval: !<float> 5.000000
-      webSocketController: !<MappingBased.WebSocketController> db191827-1075-468e-a1fb-20453df54367
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/e7783d76-b37e-4c91-b45f-cf459fa04ffe>
   PrefabRemaps:
     []
@@ -8467,7 +8494,7 @@
   PrefabRemaps:
     []
   Name: "[StaticPresentation]"
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8626,8 +8653,9 @@
   ScriptInputsDefault:
     pressThreshold: true
     resetDuration: true
+    customFileBridgeObj: true
+    useCustomFileBridge: true
     next: true
-    useGoogleSlide: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -8646,9 +8674,9 @@
       pressThreshold: 0.700000
       resetDuration: !<float> 1.000000
       presentationSwitcher: !<MappingBased.PresentationSwitcher> 073466e1-c11f-466d-9a20-f0f6670de1f2
-      googleSlideBridge: !<MappingBased.GoogleSlideBridge> e7609cad-9623-411a-98bb-d7c5f2c388ab
+      customFileBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useCustomFileBridge: false
       next: false
-      useGoogleSlide: false
   ScriptTypes:
     "":
       {}
@@ -8998,6 +9026,25 @@
     []
   Components:
     - !<own> 6a2b5479-c9a7-4c7c-8d52-99a2b244f235
+- !<ScriptComponent/f3c5c52e-f5ea-497a-bc90-1388937dbfda>
+  PrefabRemaps:
+    []
+  Name: MobileController
+  Enabled: true
+  ScriptAsset: !<reference> 686c21b8-8613-4863-86aa-fd997edc1a3b
+  ScriptInputsDefault:
+    googleSlideBridgeObj: true
+    useGoogleSlide: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      presentationSwitcherObj: !<reference.SceneObject> 3c0fd884-5b64-4c4a-a380-c7607cd06b4e
+      googleSlideBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useGoogleSlide: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/f3efa220-8a2d-453c-bb0a-db0ae36b93ec>
   PrefabRemaps:
     []

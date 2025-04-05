@@ -1,3 +1,4 @@
+
 import {
   DragInteractorEvent,
   InteractorEvent,
@@ -161,6 +162,8 @@ export class Interactable extends BaseScriptComponent {
    * 3: Direct/Indirect
    * 4: Poke
    */
+    
+    
   @input
   @widget(
     new ComboBoxWidget([
@@ -372,6 +375,9 @@ export class Interactable extends BaseScriptComponent {
       })
       this.log.v("InteractionEvent : " + "On Trigger End Event")
     }
+        
+         
+        
     this.dragEnd(eventArgs)
   }
 

@@ -1,11 +1,20 @@
 import NativeLogger from "../../SpectaclesInteractionKit/Utils/NativeLogger";
 import { PresentationSwitcher } from "./PresentationSwitcher";
-import { GoogleSlideBridge } from "./GoogleSlideBridge";
+// REMOVE or comment out the import to CustomFileBridge
+// import {CustomFileBridge} from "./CustomFileBridge"; // <-- DELETE THIS LINE
 
 const log = new NativeLogger("SpeechToText");
 
+// Keep your @component if you rely on the SIK (Spectacles Interaction Kit) pipeline.
 @component
 export class SpeechToText extends BaseScriptComponent {
+  //-----------------------------------------------------------------------
+  // 1) Replace direct CustomFileBridge import with a SceneObject reference:
+  //-----------------------------------------------------------------------
+  @input
+  @hint("Scene object holding your CustomFileBridge script")
+  customFileBridgeObj: SceneObject;  
+
   @input
   @hint("Text component to display transcriptions")
   text: Text;
@@ -14,9 +23,10 @@ export class SpeechToText extends BaseScriptComponent {
   @hint("Reference to the PresentationSwitcher component")
   presentationSwitcher: PresentationSwitcher;
 
-  @input
-  @hint("Reference to the GoogleSlideBridge component")
-  googleSlideBridge: GoogleSlideBridge;
+  // Remove the typed reference to 'CustomFileBridge' – it's not a real module in Lens
+  // @input
+  // @hint("Reference to the GoogleSlideBridge component") 
+  // customFileBridge: CustomFileBridge;  // <-- DELETE THIS
 
   @input
   @hint("Delay time (in seconds) to wait before confirming a command")
@@ -35,7 +45,7 @@ export class SpeechToText extends BaseScriptComponent {
   listeningMicImage: Texture;
 
   @input
-  @hint("Enable this boolean if you are planning to Use Google Slide API and the Google Slide Bridge")
+  @hint("Enable this boolean if you are planning to use the GoogleSlideBridge logic")
   useGoogleSlide: boolean = false;
 
   private voiceMLModule: VoiceMLModule = require("LensStudio:VoiceMLModule");
@@ -45,7 +55,7 @@ export class SpeechToText extends BaseScriptComponent {
   private lastTranscription: string = "";
   private commandPending: boolean = false;
   private commandTimer: number = 0;
-  private isListening: boolean = false; // Added to toggle listening state
+  private isListening: boolean = false; // toggles listening state
 
   onAwake() {
     // Bind the onStart event
@@ -75,7 +85,7 @@ export class SpeechToText extends BaseScriptComponent {
 
       if (eventData.isFinalTranscription) {
         log.d(`Final Transcription: "${eventData.transcription}"`);
-        if (this.isListening) { // Only update text if listening is enabled
+        if (this.isListening) {
           this.text.text = eventData.transcription;
           this.handleTranscription(eventData.transcription);
         } else {
@@ -84,7 +94,7 @@ export class SpeechToText extends BaseScriptComponent {
       }
     };
 
-    // Set the initial button icon to normal mic (listening off)
+    // Set the initial mic icon
     if (this.buttonImage && this.normalMicImage) {
       this.buttonImage.mainMaterial.mainPass.baseTex = this.normalMicImage;
     } else {
@@ -107,7 +117,7 @@ export class SpeechToText extends BaseScriptComponent {
         this.eventRegistration = null;
       }
       log.d("Listening stopped due to permissions being revoked");
-      // Reset the button icon and state when permissions are revoked
+      // Reset icon and state
       this.isListening = false;
       if (this.buttonImage && this.normalMicImage) {
         this.buttonImage.mainMaterial.mainPass.baseTex = this.normalMicImage;
@@ -132,57 +142,55 @@ export class SpeechToText extends BaseScriptComponent {
       if (this.buttonImage && this.normalMicImage) {
         this.buttonImage.mainMaterial.mainPass.baseTex = this.normalMicImage;
       }
-      this.text.text = ""; // Clear the text feedback when listening is disabled
-      this.commandPending = false; // Reset any pending commands
+      this.text.text = ""; 
+      this.commandPending = false; 
       this.lastTranscription = "";
     }
   }
 
-  // Handle the transcription directly
+  // Handle the transcription logic
   private handleTranscription(transcription: string) {
-    // Normalize the transcription for comparison
     const normalizedText = transcription.trim().toLowerCase();
-
-    // Check for valid commands
     if (normalizedText === "next" || normalizedText === "next.") {
       log.d("Detected 'next' command - starting delay");
       this.lastTranscription = normalizedText;
       this.commandPending = true;
       this.commandTimer = 0;
-    } else if (normalizedText === "previous" ||
-        normalizedText === "previous." ||
-        normalizedText === "go back" ||
-         normalizedText === "go back.") {
+    } else if (
+      normalizedText === "previous" ||
+      normalizedText === "previous." ||
+      normalizedText === "go back" ||
+      normalizedText === "go back."
+    ) {
       log.d("Detected 'previous' or 'go back' command - starting delay");
       this.lastTranscription = normalizedText;
       this.commandPending = true;
       this.commandTimer = 0;
     } else {
       log.d(`Transcription "${transcription}" does not match any commands`);
-      this.commandPending = false; // Reset if the transcription doesn't match
+      this.commandPending = false;
     }
   }
 
-  // Update method to handle the delay
+  // Called each frame for timing
   private update() {
     if (!this.commandPending) return;
-
     this.commandTimer += getDeltaTime();
     log.d(`Command delay timer: ${this.commandTimer.toFixed(2)} seconds`);
 
     if (this.commandTimer >= this.commandDelay) {
-      // Check if the text is still the same after the delay
       const currentText = this.text.text.trim().toLowerCase();
       if (currentText === this.lastTranscription) {
         log.d(`Command "${this.lastTranscription}" confirmed after delay`);
-        if (this.isListening) { // Only execute if listening is enabled
-          if (this.lastTranscription === "next" 
-              || this.lastTranscription === "next.") {
+        if (this.isListening) {
+          if (this.lastTranscription === "next" || this.lastTranscription === "next.") {
             this.navigateToNext();
-          } else if (this.lastTranscription === "previous" 
-              || this.lastTranscription === "go back"||
-              this.lastTranscription === "previous." 
-              || this.lastTranscription === "go back.") {
+          } else if (
+            this.lastTranscription === "previous" || 
+            this.lastTranscription === "previous." ||
+            this.lastTranscription === "go back" ||
+            this.lastTranscription === "go back."
+          ) {
             this.navigateToPrevious();
           }
         } else {
@@ -195,34 +203,41 @@ export class SpeechToText extends BaseScriptComponent {
       this.lastTranscription = "";
     }
   }
-  
-  // Navigate to the next slide and synchronize across all platforms
+
+  // ------------------------------------
+  //  Next/Previous Navigation
+  // ------------------------------------
   private navigateToNext() {
-    // Update local presentation
+    // 1) For local presentation (PresentationSwitcher)
     if (this.presentationSwitcher && !this.useGoogleSlide) {
       this.presentationSwitcher.next();
     }
-    
-    // Update Google Slides via direct API
-    if (this.googleSlideBridge && this.useGoogleSlide) {
-      this.googleSlideBridge.next();
+
+    // 2) For your custom file bridge
+    //    Instead of "this.customFileBridge.next()"
+    //    we fetch the script from customFileBridgeObj
+    if (this.useGoogleSlide && this.customFileBridgeObj) {
+      const cfbScript = this.customFileBridgeObj.getComponent("Component.ScriptComponent");
+      if (cfbScript && cfbScript.api && typeof cfbScript.api.next === "function") {
+        cfbScript.api.next();
+      }
     }
-    
     log.d("Going to next slide");
   }
-  
-  // Navigate to the previous slide and synchronize across all platforms
+
   private navigateToPrevious() {
-    // Update local presentation
+    // 1) For local presentation
     if (this.presentationSwitcher && !this.useGoogleSlide) {
       this.presentationSwitcher.previous();
     }
-    
-    // Update Google Slides via direct API
-    if (this.googleSlideBridge && this.useGoogleSlide) {
-      this.googleSlideBridge.previous();
+
+    // 2) For custom file bridge
+    if (this.useGoogleSlide && this.customFileBridgeObj) {
+      const cfbScript = this.customFileBridgeObj.getComponent("Component.ScriptComponent");
+      if (cfbScript && cfbScript.api && typeof cfbScript.api.previous === "function") {
+        cfbScript.api.previous();
+      }
     }
-  
     log.d("Going to previous slide");
   }
 }

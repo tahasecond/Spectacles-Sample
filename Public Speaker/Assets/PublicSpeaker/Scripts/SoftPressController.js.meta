@@ -1,0 +1,74 @@
+- !<AssetImportMetadata/bb20bff4-388a-41c6-9970-69dff3697a56>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> edf872b2-436f-4719-8c25-f295ce274d31
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> edf872b2-436f-4719-8c25-f295ce274d31
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> b7b8a669-2dde-4c8e-bc52-7dcdd5414466
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/b7b8a669-2dde-4c8e-bc52-7dcdd5414466>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5ffdb142-5a50-4394-a516-5699f7ab673a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    bottomVertex0: false
+    bottomVertex1: false
+    bottomVertex2: false
+    bottomVertex3: false
+    closestPointMarker: false
+    colliderObject: false
+    define: false
+    googleSlideBridge: false
+    interactorObject: false
+    next: false
+    presentationSwitcher: false
+    pressThreshold: false
+    resetDuration: false
+    topVertex0: false
+    topVertex1: false
+    topVertex2: false
+    topVertex3: false
+    useGoogleSlide: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - SceneObject: !<RequiredType.topVertex0:> 00000000-0000-0000-0000-000000000000
+      define: !<RequiredType.lines> 00000000-0000-0000-0000-000000000000
+      colliderObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      interactorObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      closestPointMarker: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topVertex0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topVertex1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topVertex2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topVertex3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomVertex0: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomVertex1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomVertex2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomVertex3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      pressThreshold: 0.700000
+      resetDuration: !<float> 1.000000
+      presentationSwitcher: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      customFileBridgeObj: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useCustomFileBridge: false
+      next: false
+      googleSlideBridge: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      useGoogleSlide: false
+  ScriptTypes:
+    -
+      {}

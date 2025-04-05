@@ -58,7 +58,7 @@ export class PresentationSwitcher extends BaseScriptComponent {
         if (index >= 0 && index < this.slides.length) {
             // First hide all
             this.hideAllSlides();
-            
+             
             // Then show only the one at the index
             this.slides[index].enabled = true;
             this.currentIndex = index;
