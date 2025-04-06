@@ -2595,6 +2595,7 @@
     allowTranslation: true
     minimumSize: true
     maximumSize: true
+    useBillboarding: true
     xAlways: true
     yAlways: true
     useSnapping: true
@@ -2602,6 +2603,7 @@
     worldSnapping: true
     showFollowButton: true
     isFollowing: true
+    _enableInteractionPlane: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -2616,7 +2618,7 @@
       allowTranslation: true
       minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
       maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
-      useBillboarding: true
+      useBillboarding: false
       xOnTranslate: true
       xAlways: false
       yOnTranslate: true
@@ -2628,7 +2630,7 @@
       useFOVFollow: true
       isFollowing: false
       showCloseButton: false
-      _enableInteractionPlane: true
+      _enableInteractionPlane: false
   ScriptTypes:
     "":
       {}
@@ -4913,11 +4915,14 @@
     allowTranslation: true
     minimumSize: true
     maximumSize: true
+    useBillboarding: true
     xAlways: true
     yAlways: true
     useSnapping: true
     itemSnapping: true
     worldSnapping: true
+    showFollowButton: true
+    _enableInteractionPlane: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4932,7 +4937,7 @@
       allowTranslation: true
       minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
       maximumSize: !<Vec2> {x: 300.000000, y: 300.000000}
-      useBillboarding: true
+      useBillboarding: false
       xOnTranslate: true
       xAlways: false
       yOnTranslate: true
@@ -4940,11 +4945,11 @@
       useSnapping: false
       itemSnapping: false
       worldSnapping: false
-      showFollowButton: true
+      showFollowButton: false
       useFOVFollow: true
       isFollowing: true
       showCloseButton: false
-      _enableInteractionPlane: true
+      _enableInteractionPlane: false
   ScriptTypes:
     "":
       {}
@@ -10278,10 +10283,13 @@
     autoScaleContent: true
     isContentInteractable: true
     allowTranslation: true
+    useBillboarding: true
     xAlways: true
     yAlways: true
     worldSnapping: true
+    showFollowButton: true
     isFollowing: true
+    _enableInteractionPlane: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -10296,7 +10304,7 @@
       allowTranslation: true
       minimumSize: !<Vec2> {x: 8.000000, y: 8.000000}
       maximumSize: !<Vec2> {x: 200.000000, y: 200.000000}
-      useBillboarding: true
+      useBillboarding: false
       xOnTranslate: true
       xAlways: false
       yOnTranslate: true
@@ -10304,11 +10312,11 @@
       useSnapping: true
       itemSnapping: true
       worldSnapping: false
-      showFollowButton: true
+      showFollowButton: false
       useFOVFollow: true
       isFollowing: false
       showCloseButton: false
-      _enableInteractionPlane: true
+      _enableInteractionPlane: false
   ScriptTypes:
     "":
       {}

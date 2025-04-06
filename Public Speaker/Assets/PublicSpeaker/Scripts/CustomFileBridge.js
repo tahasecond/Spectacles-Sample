@@ -12,6 +12,7 @@ var currentIndex = 0;
 script.api.next = next;
 script.api.previous = previous;
 
+
 function fetchSlides() {
     var url = "https://ar-notes-backend-immersegt-eddf3c030982.herokuapp.com/upload_notes_result";
     var request = new Request(url, { method: "GET" });

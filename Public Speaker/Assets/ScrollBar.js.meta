@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/1cdb2420-387f-4cfa-8ad7-3a3fcc4226ee>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> fa97c88a-64ae-40e1-ac92-f8fb457f8208
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> fa97c88a-64ae-40e1-ac92-f8fb457f8208
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> d96585e8-6b3f-4578-8493-ac2811b85a33
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/d96585e8-6b3f-4578-8493-ac2811b85a33>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: beab2e6f-c5e6-40d7-926d-6e8eb3a3c178
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    containerFrame: false
+    defaultMaterial: false
+    scrollBarColor: false
+    scrollBarWidth: false
+    scrollHandleColor: false
+    targetText: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - targetText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      containerFrame: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      scrollBarWidth: 0.500000
+      scrollBarColor: !<Vec4> {x: 0.700000, y: 0.700000, z: 0.700000, w: 0.500000}
+      scrollHandleColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.800000}
+      defaultMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

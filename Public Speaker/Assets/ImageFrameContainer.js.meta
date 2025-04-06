@@ -1,0 +1,58 @@
+- !<AssetImportMetadata/bb724915-3623-46e9-b8c6-e053f50a237d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 8bb2e8e7-d771-4506-988f-728e6e166877
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 8bb2e8e7-d771-4506-988f-728e6e166877
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 0169f47b-f5e9-41ea-b59a-74e311c8db53
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/0169f47b-f5e9-41ea-b59a-74e311c8db53>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 04f2844f-fca6-482c-80cd-b6c64b8835da
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    border: false
+    constantPadding: false
+    innerSize: false
+    renderMesh: false
+    transform: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - targetImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      containerFrame: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      animationDuration: 0.300000
+      rightHandOnly: true
+      scaleMultiplier: !<float> 1.000000
+      interactionManager: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      slideContainer: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      imageContainerSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      border: !<float> 5.000000
+      minScale: 0.500000
+      maxScale: !<float> 2.000000
+      innerSize: !<Vec2> {x: 0.000000, y: 0.000000}
+      minimumSize: !<Vec2> {x: 0.000000, y: 0.000000}
+      maximumSize: !<Vec2> {x: 0.000000, y: 0.000000}
+      frameMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      renderMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      transform: !<reference.Transform> 00000000-0000-0000-0000-000000000000
+      constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
+  ScriptTypes:
+    -
+      {}
